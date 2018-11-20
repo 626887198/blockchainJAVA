@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/pb.css"/>
+    <style>
+        body {
+            margin: 20px;
+        }
+
+        #result {
+            font-size: 18px;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="form-group">
+    <label>付款方公钥</label>
+    <textarea type="text" class="form-control" id="senderPublickey">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtZGnhZrDB1P1657MhVd+yBpq8hFR9p5X
+zaeK1+474FpKPbcERtOMyjLYTOrl6GW7vRZUzODSvc/TbRX82NovRXYV6taksL5hQkpZtieiH1Hj
+MFZ1WhdwWaSaceJki95TFj7DaZt1r0aSxbbSGJRBDXIlPqZMjuCMQeam0Y9fKsCA2X43gts6GASw
+nijODVgFu2WegNOCGamlHPrUuwWewhMjrKLxXNKnXzJ2LVwN6rI/Of/Zrl8xElMfjWr6XK3gOwbJ
+nI1t9/VSbda2CVJ+sE5VLYUk9iczP/3fq2e7zZBW3KNVlgb89rPtl7vlaGIfxn1AFKi1Gd1MyG67
+FBgsAwIDAQAB</textarea>
+</div>
+<div class="form-group">
+    <label>付款方私钥</label>
+    <textarea type="text" class="form-control" id="senderPrivatekey">-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC1kaeFmsMHU/XrnsyFV37IGmry
+EVH2nlfNp4rX7jvgWko9twRG04zKMthM6uXoZbu9FlTM4NK9z9NtFfzY2i9FdhXq1qSwvmFCSlm2
+J6IfUeMwVnVaF3BZpJpx4mSL3lMWPsNpm3WvRpLFttIYlEENciU+pkyO4IxB5qbRj18qwIDZfjeC
+2zoYBLCeKM4NWAW7ZZ6A04IZqaUc+tS7BZ7CEyOsovFc0qdfMnYtXA3qsj85/9muXzESUx+Navpc
+reA7BsmcjW339VJt1rYJUn6wTlUthST2JzM//d+rZ7vNkFbco1WWBvz2s+2Xu+VoYh/GfUAUqLUZ
+3UzIbrsUGCwDAgMBAAECggEAXQ4NQVgT5EmPm/aC80PoYj3H2dAupap5bZkUe55Jaa5cpkyKEJKT
+cX2lhaZNtlGNaldrlqUS3N0KirneIHWSDJN8oCLpvPuVdRgN6mFdoZeiTD/DXSzuE8NctElHJrgG
+9Tutgw59vhr5VgNgoeA5ht6dYAJy8jb7Kzs++9/y8kFhyMcbJk6IkWlNQlI3rlBKrK+SVX7Huexp
+KMCaendft+diY6y8qm45eC1UVATg6piAcPvrDckrDpHoGBNypAqElIKjcr0RsFKVpl4ed8Uk7oTp
+9oCSQztPPhB2f++d6VLHZ6NtppM1NTUvvN2UnNP32V+dKE7nR3GtTiW7dAH5gQKBgQDZM8v6QY3+
+Y+EVQsij4S6s+NfnpebsGrctELx3i3zydGOViChfAm6+nEWch43QEnf5hwJdCn4XDmkgdLaeYyuM
+tvextUHtDbyBqrzrjMo/o+01eJdjm6Gd1HkDwJXlslkDXLnrQ6C2s8yulJ2ZN3XC5+0YerajeOHR
+jB/tSmItcQKBgQDWAGtEEsvLLSDIHWY/NFzcwvaY6KKGA+pdyiJaLK84+fHREZ0sA6m5s5lvBiqE
+0pOjIXj9X8T8cd+kG6KA7csQTJviDYWUBQxpSB4dH13dKCtm5gYra24eyMf8v7HfLy4Nc9E6r4+9
+EPpLGZPIlywqxNYK0nfZbFq3ob7khJ3GswKBgDWtO0eJU9H+VO2wJ214hNRyWskAkuTeZU5ZyHmy
+mxo/8SxPDcsNCtlIPVvFlCJLriKYXtkncqm4AfrnXQofb+/Cd8wPA0/WCTPyQeXkUUcQ99ozBxay
+q2oZzB5FRcYSITVXgQrHF7yPCpJKX/gxYITeVBWsnd4gTY4/ltRJgaHBAoGBAKG5KVcFeVtvHEH+
+7cFAGhl/gQpnbEMo/FmqozFQaY7+XH+p9wRHNGGxV3euyj0cQhRa/GtGj8BTcjY76B/VFMuZiYhY
+vaTx98IsjQ1nIfE7JSmbFfiENHExPOlGGO7YYc4qw2i9Ojwgc3aDusoxbGBZ5oPBMG9wUlJJ+tAJ
+ZI6/AoGAMLtBYHFxYWfB75iuFd2dXHB6vqXVdhKaDOAaBQlO7cq+4t1pkhMG+g2h8ewVfnuDoWEe
+Oz3w/QooG+ACg6dIx+K+eUPvcu6CAPwVIb24rnVYi5+HKRQbX7A94eOMUMs0MkxhE3we+dIjdhCf
+IAqgvy93D5KoAO3attpmbqUwwVg=
+-----END PRIVATE KEY-----</textarea>
+</div>
+<div class="form-group">
+    <label>收款方公钥</label>
+    <textarea type="text" class="form-control" id="receiverPublickey">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtZGnhZrDB1P1657MhVd+yBpq8hFR9p5X
+zaeK1+474FpKPbcERtOMyjLYTOrl6GW7vRZUzODSvc/TbRX82NovRXYV6taksL5hQkpZtieiH1Hj
+MFZ1WhdwWaSaceJki95TFj7DaZt1r0aSxbbSGJRBDXIlPqZMjuCMQeam0Y9fKsCA2X43gts6GASw
+nijODVgFu2WegNOCGamlHPrUuwWewhMjrKLxXNKnXzJ2LVwN6rI/Of/Zrl8xElMfjWr6XK3gOwbJ
+nI1t9/VSbda2CVJ+sE5VLYUk9iczP/3fq2e7zZBW3KNVlgb89rPtl7vlaGIfxn1AFKi1Gd1MyG67
+FBgsAwIDAQAB</textarea>
+</div>
+<div class="form-group">
+    <label>请输入内容</label>
+    <input type="text" class="form-control" id="inputContent">
+</div>
+
+
+<div class="btn-group btn-group-lg">
+    <button type="button" class="btn btn-default" onclick="addGenesis()">添加封面</button>
+    <button type="button" class="btn btn-default" onclick="addNote()">添加记录</button>
+    <button type="button" class="btn btn-default" onclick="showlist()">展示数据</button>
+    <button type="button" class="btn btn-default" onclick="verify()">校验数据</button>
+
+</div>
+
+<div class="btn-group btn-group-lg">
+    <button type="button" class="btn btn-default" onclick="regist()">注册节点</button>
+    <button type="button" class="btn btn-default" onclick="conn()">连接</button>
+    <button type="button" class="btn btn-default" onclick="syncData()">同步</button>
+
+
+</div>
+
+<p class="bg-success" id="result"></p>
+<table class="table">
+
+    <thead>
+    <tr>
+
+        <th>ID</th>
+        <th>内容</th>
+        <th>哈希值</th>
+        <th>工作量证明</th>
+        <th>preHash</th>
+    </tr>
+    </thead>
+    <tbody id="tagTbody">
+
+
+    </tbody>
+</table>
+
+<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/pb.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jsrsasign-all-min.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+
+    // 1.添加完数据以后清空输入框
+    // 2.页面打开以后,就直接展示所有的数据
+
+    // 添加封面
+    function addGenesis() {
+        loading.baosight.showPageLoadingMsg(false) // 显示进度条
+
+        // 1.获取输入的内容
+        var content = $("#inputContent").val();
+        // 2. 发起请求
+        $.post("addGenesis", // 请求路径
+            "genesis=" + content,// 传递的数据
+            function (data) { // 请求成功的回调函数
+                // 展示操作结果
+                $("#result").html(data)
+
+                // 清空输入框
+                $("#inputContent").val("");
+                loading.baosight.hidePageLoadingMsg() // 隐藏进度条
+                showlist()
+            });
+
+    }
+
+    function addNote() {
+        loading.baosight.showPageLoadingMsg(false) // 显示进度条
+
+
+        // 1.获取输入的内容
+        var content = $("#inputContent").val();
+        // 发送方的私钥
+        var senderPrivatekey = $("#senderPrivatekey").val();
+        // 发送方的公钥
+        var senderPublickey = $("#senderPublickey").val();
+        // 接收方的公钥
+        var receiverPublickey = $("#receiverPublickey").val();
+
+        // 生成私钥
+        var prvKey = KEYUTIL.getKey(senderPrivatekey);
+        // 指定算法
+        var sig = new KJUR.crypto.Signature({"alg": "SHA256withRSA"});
+        // 初始化
+        sig.init(prvKey);
+        // 指定原文
+        sig.updateString(content)
+        // 生成签名
+        var sigValueHex = sig.sign()
+
+
+        // 2. 发起请求
+        $.post("addNote", // 请求路径
+            {
+                senderAddress: senderPublickey,
+                receiverAddress: receiverPublickey,
+                content: content,
+                signature: sigValueHex,
+            },// 传递的数据
+            function (data) { // 请求成功的回调函数
+                // 展示操作结果
+                $("#result").html(data)
+                // 清空输入框
+                $("#inputContent").val("");
+                loading.baosight.hidePageLoadingMsg() // 隐藏进度条
+                showlist()
+            });
+    }
+
+    function addNote2() {
+        loading.baosight.showPageLoadingMsg(false) // 显示进度条
+        // 1.获取输入的内容
+        var content = $("#inputContent").val();
+        // 2. 发起请求
+        $.post("addNote", // 请求路径
+            "note=" + content,// 传递的数据
+            function (data) { // 请求成功的回调函数
+                // 展示操作结果
+                $("#result").html(data)
+                // 清空输入框
+                $("#inputContent").val("");
+                loading.baosight.hidePageLoadingMsg() // 隐藏进度条
+                showlist()
+            });
+    }
+
+    function showlist() {
+        loading.baosight.showPageLoadingMsg(false) // 显示进度条
+        // 2. 发起请求
+        $.get("showlist", // 请求路径
+
+            function (data) { // 请求成功的回调函数
+
+
+                // 清空表格中的数据
+                $("#tagTbody").html("")
+                for (var i = 0; i < data.length; i++) {
+                    var block = data[i];
+                    var id = block.id;
+                    var content = block.content;
+                    var hash = block.hash;
+                    var nonce = block.nonce;
+                    var preHash = block.preHash;
+
+                    $("#tagTbody").append("<tr><td>" + id + "</td><td>" + content + "</td><td>" + hash + "</td><td>" + nonce + "</td><td>" + preHash + "</td></tr>")
+                }
+
+
+                loading.baosight.hidePageLoadingMsg() // 隐藏进度条
+            });
+    }
+
+    // 入口函数
+    $(function () {
+        showlist()
+    })
+
+
+    function verify() {
+        loading.baosight.showPageLoadingMsg(false) // 显示进度条
+        // 2. 发起请求
+        $.get("verify", // 请求路径
+
+            function (data) { // 请求成功的回调函数
+
+                // 展示操作结果
+                $("#result").html(data)
+
+                loading.baosight.hidePageLoadingMsg() // 隐藏进度条
+            });
+    }
+
+
+    function regist() {
+        loading.baosight.showPageLoadingMsg(false) // 显示进度条
+
+        // 1.获取输入的内容
+        var content = $("#inputContent").val();
+        // 2. 发起请求
+        $.post("regist", // 请求路径
+            "port=" + content,// 传递的数据
+            function (data) { // 请求成功的回调函数
+                // 展示操作结果
+                $("#result").html(data)
+
+                // 清空输入框
+                $("#inputContent").val("");
+                loading.baosight.hidePageLoadingMsg() // 隐藏进度条
+
+            });
+    }
+
+    function conn() {
+        loading.baosight.showPageLoadingMsg(false) // 显示进度条
+
+
+        $.post("conn", // 请求路径
+
+            function (data) { // 请求成功的回调函数
+                // 展示操作结果
+                $("#result").html(data)
+
+
+                loading.baosight.hidePageLoadingMsg() // 隐藏进度条
+
+            });
+    }
+
+    function syncData() {
+        loading.baosight.showPageLoadingMsg(false) // 显示进度条
+
+
+        // 2. 发起请求
+        $.post("syncData", // 请求路径
+
+            function (data) { // 请求成功的回调函数
+                // 展示操作结果
+                $("#result").html(data)
+
+
+                loading.baosight.hidePageLoadingMsg() // 隐藏进度条
+
+            });
+    }
+</script>
+</body>
+
+</html>
